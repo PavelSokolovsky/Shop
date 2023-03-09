@@ -1,0 +1,51 @@
+﻿<Page x:Class="ShopSokolovsky.Views.Pages.AvailableGoods"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ShopSokolovsky.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AvailableGoods">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Name="DG"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название продукта" Binding="{Binding Product.name}"/>
+                <DataGridTextColumn Header="Текущее кол-во продукта" Binding="{Binding Current}"/>
+                <DataGridTextColumn Header="Минимальное кол-во продукта" Binding="{Binding Min}"/>
+                <DataGridTextColumn Header="Максимальное кол-во продукта" Binding="{Binding Max}"/>
+            </DataGrid.Columns>
+            
+        </DataGrid>
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Grid.Row="1">
+            <TextBlock Text="Штрихкод"
+                       FontSize="25"
+                       HorizontalAlignment="Center"
+                       Margin="0 0 0 5"/>
+            <TextBox Height="25"
+                     Margin="0 0 0 5"/>
+            <Button HorizontalAlignment="Center"
+                    Content="Добавить"
+                Grid.Row="1"
+                Width="200"
+                Height="27"
+                    Name="barcodeBTN"/>
+
+        </StackPanel>
+        <Button Grid.Row="1"
+                Height="100"
+                Width="100"
+                Margin="0 0 500 0"
+                Name="scanBTN"
+                Click="scanBTN_Click"/>
+
+    </Grid>
+</Page>

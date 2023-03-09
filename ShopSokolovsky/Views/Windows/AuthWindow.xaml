@@ -1,0 +1,35 @@
+﻿<Window x:Class="ShopSokolovsky.Views.Windows.AuthWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShopSokolovsky.Views.Windows"
+        mc:Ignorable="d"
+        Title="AuthWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <TextBlock Text="Логин"
+                       FontSize="28"/>
+            <TextBox FontSize="28"
+                     Width="300"
+                     Name="loginTB"/>
+            <TextBlock Text="Пароль"
+                       FontSize="28"/>
+            <PasswordBox FontSize="28"
+                     Width="300"
+                      Name="passPB"   />
+            <Button Content="Вход"
+                    FontSize="28"
+                    Margin="0 20 0 0"
+                    Name="enterBTN"
+                    Click="enterBTN_Click"/>
+            
+            <CheckBox Content="Запомнить меня"
+                      Margin="0 10 0 0"
+                      IsChecked="True"
+                      Name="SaveChek"/>
+
+        </StackPanel> 
+    </Grid>
+</Window>
