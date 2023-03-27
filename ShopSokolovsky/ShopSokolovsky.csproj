@@ -108,8 +108,14 @@
     <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\AddProductInStock.xaml.cs">
+      <DependentUpon>AddProductInStock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\AvailableGoods.xaml.cs">
       <DependentUpon>AvailableGoods.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ProductsInBusket.xaml.cs">
+      <DependentUpon>ProductsInBusket.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\AddProductInStock.xaml.cs">
       <DependentUpon>AddProductInStock.xaml</DependentUpon>
@@ -157,7 +163,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Page Include="Views\Pages\AddProductInStock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Pages\AvailableGoods.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\ProductsInBusket.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

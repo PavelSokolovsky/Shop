@@ -31,13 +31,14 @@
                        HorizontalAlignment="Center"
                        Margin="0 0 0 5"/>
             <TextBox Height="25"
-                     Margin="0 0 0 5"/>
+                     Margin="0 0 0 5"
+                     Name="barcodeTBX"/>
             <Button HorizontalAlignment="Center"
-                    Content="Добавить"
+                    Content="Продукты в ордере"
                 Grid.Row="1"
                 Width="200"
                 Height="27"
-                    Name="barcodeBTN"/>
+                    Name="barcodeBTN" Click="barcodeBTN_Click"/>
 
         </StackPanel>
         <Button Grid.Row="1"
@@ -45,7 +46,17 @@
                 Width="100"
                 Margin="0 0 500 0"
                 Name="scanBTN"
-                Click="scanBTN_Click"/>
+                Click="scanBTN_Click"
+                Content="Имитация Скана"/>
+        <Button Grid.Row="1"
+                Height="100"
+                Width="100"
+                Margin="500 0 0 0"
+                Name="addgoodScanBTN"
+                Click="addgoodScanBTN_Click">
+            <TextBlock Text="Имитация добавления товаров в ProductInStok"
+                       TextWrapping="Wrap"/>
+        </Button>
 
     </Grid>
 </Page>

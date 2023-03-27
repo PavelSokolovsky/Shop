@@ -17,13 +17,15 @@
             <Menu>
                 <MenuItem Header="Добавление товаров в сток"
                           Click="MenuItem_Click"/>
-                <MenuItem Header="Посмотреть доступные товары"/>
+                <MenuItem Header="Посмотреть доступные товары"
+                          />
                 
 
             </Menu>
         </StackPanel>
         <Frame Name="frm"
                    NavigationUIVisibility="Hidden"
+               
                    Grid.Row="1">
                 
             </Frame>

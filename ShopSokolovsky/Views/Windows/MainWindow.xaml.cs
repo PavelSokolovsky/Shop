@@ -20,10 +20,17 @@ namespace ShopSokolovsky.Views.Windows
     /// </summary>
     public partial class MainWindow : Window
     {
+            public static MainWindow mainfrm;
         public MainWindow()
         {
             InitializeComponent();
+            mainfrm = this;
+
         }
+
+
+           
+       
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {

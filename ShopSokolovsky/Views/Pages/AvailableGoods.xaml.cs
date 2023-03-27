@@ -29,6 +29,15 @@ namespace ShopSokolovsky.Views.Pages
         public int Max { get; set; }
         public int Current { get; set; }
     }
+    public partial class ResponceOrder
+    {
+        public ResponceOrder()
+        {
+
+        }
+        public Stock Stock { get; set; }
+        public DateTime Date { get; set; }
+    }
     /// <summary>
     /// Логика взаимодействия для AvailableGoods.xaml
     /// </summary>
@@ -36,12 +45,24 @@ namespace ShopSokolovsky.Views.Pages
     {
        public static HttpClient httpClient = new HttpClient();
         public static List<ResponceProductInStock> productInStock;
+        public static List<ResponceOrder> responceOrder;
         
             public AvailableGoods()
         {
             //new ShopEntiti().ProductInStock.FirstOrDefault().Product.name
             InitializeComponent();
             GetGoodsInformation();
+            
+        }
+        private async void AddOrder()
+        {
+            httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(responceOrder), Encoding.UTF8, "application/json");
+            HttpResponseMessage message = await httpClient.PostAsync("http://localhost:52488/api/Orders/"+ Views.Windows.AuthWindow.client.id, httpContent);
+            if (message.IsSuccessStatusCode)
+            {
+
+            }
         }
         private async void GetGoodsInformation()
         {
@@ -67,13 +88,33 @@ namespace ShopSokolovsky.Views.Pages
         {
             httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(productInStock), Encoding.UTF8, "application/json");
-            HttpResponseMessage message = await httpClient.PostAsync("http://localhost:52488/api/ProductInStocks/1");
+            HttpResponseMessage message = await httpClient.PutAsync("http://localhost:52488/api/ProductInStocks/1?barcode="+ barcodeTBX.Text, httpContent );
             if(message.IsSuccessStatusCode)
             {
-                var curContent = await message.Content.ReadAsStringAsync();
-                productInStock = JsonConvert.DeserializeObject<List<ResponceProductInStock>>(curContent);
-                DG.ItemsSource = productInStock;
+                GetGoodsInformation();
+            }
+        }
+
+        private void barcodeBTN_Click(object sender, RoutedEventArgs e)
+        {
+            Views.Windows.MainWindow.mainfrm.frm.Navigate(new ProductsInBusket());
+           
+        }
+
+        private void addgoodScanBTN_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+        private async void AddProductInStok()
+        {
+            httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(productInStock), Encoding.UTF8, "application/json");
+            HttpResponseMessage message = await httpClient.PostAsync("http://localhost:52488/api/ProductInStocks", httpContent);
+            if(message.IsSuccessStatusCode)
+            {
+
             }
         }
     }
+    
 }
