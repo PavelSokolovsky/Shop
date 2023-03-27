@@ -26,6 +26,7 @@
         <Frame Name="frm"
                    NavigationUIVisibility="Hidden"
                
+               
                    Grid.Row="1">
                 
             </Frame>
